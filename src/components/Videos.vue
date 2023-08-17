@@ -3,16 +3,22 @@
     <div
       class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 max-w-screen-2xl m-auto"
     >
-      <VideoItem v-for="i in 20" :key="i" :item="i"/>
+      <a href="#" class="mb-7 group" v-for="i in 20" :key="i" :index="i">
+        <VideoItemThumbnail :index="i" />
+        <VideoItemInfo :index="i" />
+      </a>
     </div>
   </main>
 </template>
 
 <script>
-import VideoItem from "./VideoItem.vue";
+import VideoItemThumbnail from "./VideoItemThumbnail.vue";
+import VideoItemInfo from "./VideoItemInfo.vue";
+
 export default {
   components: {
-    VideoItem,
+    VideoItemThumbnail,
+    VideoItemInfo,
   },
 };
 </script>
