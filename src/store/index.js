@@ -2,11 +2,16 @@ import { createStore } from 'vuex'
 
 const store = createStore({
   state: {
-    count: 0
+    isMobileSidebar: false
   },
   mutations: {
-    increment(state) {
-      state.count++
+    setMobileSidebar(state) {
+      state.isMobileSidebar = !state.isMobileSidebar
+    }
+  },
+  getters: {
+    isMobileSidebar: (state) => {
+      return state.isMobileSidebar
     }
   }
 })
