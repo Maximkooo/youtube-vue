@@ -1,5 +1,6 @@
 <template>
   <header class="flex justify-between fixed z-30 w-full">
+    <button @click="increment">testttttt</button>
     <div class="lg:w-1/4 flex">
       <div class="flex items-center xl:w-64 xl:bg-white pl-4">
         <button class="mr-3 sm:ml-2 sm:mr-6 focus:outline-none">
@@ -55,6 +56,13 @@ export default {
     LogoMain,
     SearchMain,
     ButtonLogin,
+  },
+  methods: {
+    increment() {
+      console.log(this.$store);
+      this.$store.commit("increment");
+      console.log(this.$store.state.count);
+    },
   },
 };
 </script>
