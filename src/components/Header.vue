@@ -29,13 +29,12 @@
         <BaseIcon name="search" />
       </button>
       <button class="relative group p-2 focus:outline-none">
-        <BaseIcon name="viewGrid" />
-        <DropdownApps />
+        <BaseIcon name="viewGrid" @click="test('apps')" />
+        <DropdownApps v-if="showDropdownApps" />
       </button>
       <button class="relative group p-2 focus:outline-none">
-        <BaseIcon name="dotsVertical" />
-
-        <DropdownSettings />
+        <BaseIcon name="dotsVertical" @click="test('settings')" />
+        <DropdownSettings v-if="showDropdownSettings" />
       </button>
       <ButtonLogin />
     </div>
@@ -59,9 +58,32 @@ export default {
     SearchMain,
     ButtonLogin,
   },
+  data() {
+    return {
+      showDropdownApps: false,
+      showDropdownSettings: false,
+    };
+  },
+  mounted() {
+    window.addEventListener("click", (event) => {
+      if (!this.$el.contains(event.target)) {
+        this.showDropdownApps = false;
+        this.showDropdownSettings = false;
+      }
+    });
+  },
   methods: {
     setMobileSidebar() {
       this.$store.commit("setMobileSidebar");
+    },
+    test(type) {
+      if (type === "apps") {
+        this.showDropdownSettings = false;
+        this.showDropdownApps = !this.showDropdownApps;
+      } else {
+        this.showDropdownSettings = !this.showDropdownSettings;
+        this.showDropdownApps = false;
+      }
     },
   },
 };
