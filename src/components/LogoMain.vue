@@ -1,5 +1,5 @@
 <template>
-  <a href="#">
+  <a href="#" class="xl:ml-4">
     <svg
       class="w-20"
       xmlns="http://www.w3.org/2000/svg"

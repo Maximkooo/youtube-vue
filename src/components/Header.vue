@@ -4,7 +4,7 @@
       <div class="flex items-center xl:w-64 xl:bg-white pl-4">
         <button
           @click="setMobileSidebar"
-          class="mr-3 sm:ml-2 sm:mr-6 focus:outline-none"
+          class="xl:hidden mr-3 sm:ml-2 sm:mr-6 focus:outline-none"
         >
           <BaseIcon name="menu" />
         </button>
