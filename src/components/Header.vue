@@ -15,27 +15,44 @@
       class="hidden sm:flex items-center justify-end p-2.5 pl-8 md:pl-12 md:px-8 flex-1 lg:px-0 lg:w-1/2 max-w-screen-md"
     >
       <SearchMain />
-      <button class="ml-4 focus:outline-none">
-        <BaseIcon name="micro" class="w-5 h-5" />
-      </button>
+      <BaseTooltip title="Search with your voice">
+        <button class="p-2 focus:outline-none">
+          <BaseIcon name="micro" class="w-5 h-5" />
+        </button>
+      </BaseTooltip>
     </div>
     <div
       class="flex items-center justify-end lg:w-1/4 sm:space-x-3 p-2 sm:px-4"
     >
-      <button class="sm:hidden p-2 focus:outline-none">
-        <BaseIcon name="micro" />
-      </button>
-      <button class="sm:hidden p-2 focus:outline-none">
-        <BaseIcon name="search" />
-      </button>
-      <button class="relative group p-2 focus:outline-none">
-        <BaseIcon name="viewGrid" @click="test('apps')" />
+      <BaseTooltip title="Search with your voice">
+        <button class="sm:hidden p-2 focus:outline-none">
+          <BaseIcon name="micro" />
+        </button>
+      </BaseTooltip>
+
+      <BaseTooltip title="Search">
+        <button class="sm:hidden p-2 focus:outline-none">
+          <BaseIcon name="search" />
+        </button>
+      </BaseTooltip>
+
+      <div class="relative">
+        <BaseTooltip title="Youtube apps">
+          <button class="group p-2 focus:outline-none">
+            <BaseIcon name="viewGrid" @click="checkType('apps')" />
+          </button>
+        </BaseTooltip>
         <DropdownApps v-if="showDropdownApps" />
-      </button>
-      <button class="relative group p-2 focus:outline-none">
-        <BaseIcon name="dotsVertical" @click="test('settings')" />
+      </div>
+
+      <div class="relative">
+        <BaseTooltip title="Settings">
+          <button class="group p-2 focus:outline-none">
+            <BaseIcon name="dotsVertical" @click="checkType('settings')" />
+          </button>
+        </BaseTooltip>
         <DropdownSettings v-if="showDropdownSettings" />
-      </button>
+      </div>
       <ButtonLogin />
     </div>
   </header>
@@ -48,6 +65,7 @@ import LogoMain from "./LogoMain.vue";
 import SearchMain from "./SearchMain.vue";
 import ButtonLogin from "./ButtonLogin.vue";
 import BaseIcon from "./BaseIcon.vue";
+import BaseTooltip from "./BaseTooltip.vue";
 
 export default {
   components: {
@@ -57,6 +75,7 @@ export default {
     LogoMain,
     SearchMain,
     ButtonLogin,
+    BaseTooltip,
   },
   data() {
     return {
@@ -76,7 +95,7 @@ export default {
     setMobileSidebar() {
       this.$store.commit("setMobileSidebar");
     },
-    test(type) {
+    checkType(type) {
       if (type === "apps") {
         this.showDropdownSettings = false;
         this.showDropdownApps = !this.showDropdownApps;

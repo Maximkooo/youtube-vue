@@ -3,7 +3,7 @@
     <div
       class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 max-w-screen-2xl m-auto"
     >
-      <a href="#" class="mb-7 group" v-for="i in 20" :key="i" :index="i">
+      <a class="mb-7 group" v-for="i in 20" :key="i" :index="i">
         <VideoItemThumbnail :index="i" />
         <VideoItemInfo :index="i" />
       </a>
