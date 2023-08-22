@@ -11,7 +11,12 @@
         <LogoMain />
       </div>
     </div>
+    <SearchMobile
+      v-if="isSmallScreen && isMobileSearch"
+      @close="isMobileSearch = false"
+    />
     <div
+      v-else
       class="hidden sm:flex items-center justify-end p-2.5 pl-8 md:pl-12 md:px-8 flex-1 lg:px-0 lg:w-1/2 max-w-screen-md"
     >
       <SearchMain />
@@ -31,7 +36,10 @@
       </BaseTooltip>
 
       <BaseTooltip title="Search">
-        <button class="sm:hidden p-2 focus:outline-none">
+        <button
+          class="sm:hidden p-2 focus:outline-none"
+          @click="isMobileSearch = !isMobileSearch"
+        >
           <BaseIcon name="search" />
         </button>
       </BaseTooltip>
@@ -66,6 +74,7 @@ import SearchMain from "./SearchMain.vue";
 import ButtonLogin from "./ButtonLogin.vue";
 import BaseIcon from "./BaseIcon.vue";
 import BaseTooltip from "./BaseTooltip.vue";
+import SearchMobile from "./SearchMobile.vue";
 
 export default {
   components: {
@@ -76,22 +85,35 @@ export default {
     SearchMain,
     ButtonLogin,
     BaseTooltip,
+    SearchMobile,
   },
   data() {
     return {
       showDropdownApps: false,
       showDropdownSettings: false,
+      isSmallScreen: false,
+      isMobileSearch: false,
     };
   },
   mounted() {
+    this.onResize();
     window.addEventListener("click", (event) => {
       if (!this.$el.contains(event.target)) {
         this.showDropdownApps = false;
         this.showDropdownSettings = false;
       }
     });
+    window.addEventListener("resize", this.onResize);
   },
   methods: {
+    onResize() {
+      if (window.innerWidth < 640) {
+        this.isSmallScreen = true;
+      } else {
+        this.isSmallScreen = false;
+      }
+    },
+
     setMobileSidebar() {
       this.$store.commit("setMobileSidebar");
     },

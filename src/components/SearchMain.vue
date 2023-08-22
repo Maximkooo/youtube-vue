@@ -1,6 +1,7 @@
 <template>
   <div class="flex w-full h-full mr-2">
     <input
+      ref="search"
       type="text"
       placeholder="Search"
       class="w-full px-3 shadow-inner rounded-bl-sm rounded-tl-sm border border-gray-300 focus:border-blue-700 focus:outline-none"
@@ -19,6 +20,12 @@
 import BaseIcon from "./BaseIcon.vue";
 import BaseTooltip from "./BaseTooltip.vue";
 export default {
+  props: {
+    isFocus: {
+      type: Boolean,
+      default: false,
+    },
+  },
   components: {
     BaseIcon,
     BaseTooltip,
@@ -40,6 +47,9 @@ export default {
         "-translate-x-1/2",
       ];
     },
+  },
+  mounted() {
+    this.isFocus && this.$refs.search.focus();
   },
 };
 </script>

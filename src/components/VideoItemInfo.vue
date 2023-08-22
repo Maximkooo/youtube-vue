@@ -7,9 +7,13 @@
     />
     <div class="text-sm">
       <span class="font-semibold text-gray-800">Video title</span>
-      <div class="mt-1 flex items-center">
-        <span>Channel name</span>
-        <BaseIcon name="tick" class="w-3.5 h-3.5 ml-1" />
+      <div class="mt-1 flex">
+        <BaseTooltip :title="tooltipTitle" top>
+          <span>{{ tooltipTitle }}</span>
+        </BaseTooltip>
+        <BaseTooltip title="Verified" top>
+          <BaseIcon name="tick" class="w-3.5 h-3.5 ml-1" />
+        </BaseTooltip>
       </div>
       <div v-html="summary"></div>
     </div>
@@ -19,10 +23,11 @@
 
 <script>
 import BaseIcon from "./BaseIcon.vue";
+import BaseTooltip from "./BaseTooltip.vue";
 import VideoItemDropdown from "./VideoItemDropdown.vue";
 
 export default {
-  components: { BaseIcon, VideoItemDropdown },
+  components: { BaseIcon, VideoItemDropdown, BaseTooltip },
   props: {
     index: {
       required: true,
@@ -34,6 +39,9 @@ export default {
       return `${this.index}K views &middot; ${this.index} ${
         this.index === 1 ? "day" : "days"
       } ago`;
+    },
+    tooltipTitle() {
+      return `Channel name ${this.index}`;
     },
   },
 };
