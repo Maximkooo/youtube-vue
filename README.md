@@ -1,7 +1,30 @@
-# Vue 3 + Vite
+# YOUTUBE CLONE
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+<a href="https://youtube-clone-vue.netlify.app/">DEMO</a>
 
-## Recommended IDE Setup
+It's a clone of the famous YouTube website. In this project you will find various drop-down lists, forms and menus. I hope everyone will like this project. Have fun!
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+<h2>Technology</h2>
+
+- Vue3
+- Vuex
+- Vite
+- Tailwind CSS
+
+<h2>Version</h2>
+
+release v1.0
+
+<h2>Bug tracker</h2>
+
+If you find a bug, please report it <a href="https://github.com/Maximkooo/youtube-vue/issues">here on Github!</a>
+
+<h2>Developer</h2>
+
+Developed by Maksym Synytskyi
+
+<ul>
+  <li><a href="https://www.linkedin.com/in/maksym-synytskyi-27a0a7222/">LinkedIn Profile</a></li>
+  <li><a href="https://github.com/Maximkooo">Github Profile</a></li>
+  <li><a href="https://maximkooo.github.io/synytskyi-portfolio/">Portfolio</a></li>
+</ul>
